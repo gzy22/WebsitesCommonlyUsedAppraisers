@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评估师常用网站导航</title>
+<style>
+/* ═══════════════════════════════════════════
+   评估师常用网站导航 - 单页版
+   ═══════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #f5f7fa;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+/* ─── Header ─── */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px 28px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+/* ─── Search ─── */
+.search-box {
+  display: flex;
+  align-items: center;
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 0 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 8px;
+  font-size: 14px;
+  outline: none;
+  color: #1a1a2e;
+}
+
+.search-box input::placeholder { color: #94a3b8; }
+
+.search-box .clear-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
+/* ─── Nav ─── */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e8ecf0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-bar::-webkit-scrollbar { display: none; }
+
+.nav-inner {
+  display: flex;
+  gap: 4px;
+  padding: 8px 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+  color: #64748b;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover { background: #f1f5f9; color: #334155; }
+
+.nav-btn.active {
+  background: var(--nb-bg, #eff6ff);
+  color: var(--nb-text, #1d4ed8);
+  box-shadow: inset 0 0 0 1.5px var(--nb-dot, #3b82f6);
+}
+
+.nav-count {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+  background: var(--nb-bg, #eff6ff);
+  color: var(--nb-text, #1d4ed8);
+}
+
+/* ─── Main ─── */
+.main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 40px; }
+
+.section {
+  margin-bottom: 32px;
+  scroll-margin-top: 64px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-left: 14px;
+  border-left: 4px solid var(--sh-dot, #3b82f6);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.section-icon { font-size: 24px; }
+
+.section-desc {
+  font-size: 13px;
+  color: #64748b;
+  flex: 1;
+}
+
+.section-count {
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--sh-bg, #eff6ff);
+  color: var(--sh-text, #1d4ed8);
+  padding: 3px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ─── Grid ─── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Card ─── */
+.card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e8ecf0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  border-color: var(--cb, #dbeafe);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06), 0 0 0 1px var(--cb, #dbeafe);
+  transform: translateY(-1px);
+}
+
+.card-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.card:hover .card-name { color: var(--cd, #3b82f6); }
+
+.card-arrow {
+  font-size: 12px;
+  color: #94a3b8;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.card:hover .card-arrow { opacity: 1; }
+
+.card-desc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── No results ─── */
+.no-results {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748b;
+}
+
+.no-results p { margin-bottom: 12px; }
+
+.reset-btn {
+  padding: 8px 20px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.reset-btn:hover { background: #f1f5f9; border-color: #94a3b8; }
+
+/* ─── Footer ─── */
+.footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #e8ecf0;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.footer p { margin: 0 0 4px; }
+
+/* ─── Scroll top ─── */
+.scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(102,126,234,0.4);
+  z-index: 200;
+  font-size: 18px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.scroll-top.visible { display: flex; }
+
+.scroll-top:hover { transform: translateY(-2px); }
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- ════ Header ════ -->
+<header class="header">
+  <h1>🔖 评估师常用网站导航</h1>
+  <p class="subtitle">涵盖 141 个专业评估相关网站，分类收录报告查询、设备估价、房产土地、造价、知识产权等常用工具</p>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="搜索网站名称或功能描述..." autocomplete="off">
+    <button class="clear-btn" id="clearBtn" style="display:none" onclick="clearSearch()">✕</button>
+  </div>
+</header>
+
+<!-- ════ Nav ════ -->
+<nav class="nav-bar" id="navBar">
+  <div class="nav-inner" id="navInner"></div>
+</nav>
+
+<!-- ════ Main ════ -->
+<main class="main" id="mainContent"></main>
+
+<!-- ════ Footer ════ -->
+<footer class="footer"></footer>
+
+<!-- ════ Scroll Top ════ -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<script>
+// ═══════════════════════════════════════════════════
+// 数据
+// ═══════════════════════════════════════════════════
+
+const categories = [
+  {
+    id: "report", name: "评估报告查询", icon: "📄",
+    desc: "上市公司公告、研究报告、行业报告查询平台",
+    colors: { bg: "#eff6ff", text: "#1d4ed8", dot: "#3b82f6", bd: "#dbeafe" },
+    sites: [
+      { name: "巨潮资讯网", url: "http://www.cninfo.com.cn", desc: "中国证监会指定信息披露网站，查询上市公司公告、评估报告等" },
+      { name: "发现报告", url: "https://www.fxbaogao.com/", desc: "专业研报搜索平台，收录大量行业研究报告" },
+      { name: "观研报告网", url: "https://www.chinabaogao.com/", desc: "原中国报告网，提供各行业市场调研报告" },
+      { name: "研报客", url: "https://www.yanbaoke.com/search", desc: "研究报告搜索与分享平台" },
+      { name: "全球化智库", url: "http://www.ccg.org.cn/", desc: "国际战略与全球化研究智库" },
+      { name: "国际战略研究所", url: "https://www.iiss.org/", desc: "全球安全与战略研究权威机构" },
+      { name: "卡内基国际和平基金会", url: "https://carnegieendowment.org/?lang=en", desc: "国际政治与经济研究智库" },
+      { name: "布鲁金斯学会", url: "https://www.brookings.edu/zh-cn/", desc: "全球知名公共政策研究智库" }
+    ]
+  },
+  {
+    id: "machinery", name: "机器设备评估", icon: "⚙️",
+    desc: "二手设备、机电产品、原材料价格查询平台",
+    colors: { bg: "#fefce8", text: "#a16207", dot: "#eab308", bd: "#fef9c3" },
+    sites: [
+      { name: "盘活网", url: "https://www.51panhuo.com/", desc: "二手设备交易平台" },
+      { name: "网优二手设备", url: "http://www.fengj.com/", desc: "二手设备、废旧物资信息平台" },
+      { name: "前瞻网", url: "https://www.qianzhan.com/", desc: "进口设备指数查询" },
+      { name: "阿里巴巴机械网", url: "http://view.1688.com/cms/video/09.html", desc: "工业品与机械设备交易" },
+      { name: "机价网", url: "http://www.mepprice.com/", desc: "机电产品价格查询" },
+      { name: "爱采购", url: "https://b2b.baidu.com/", desc: "百度B2B采购平台" },
+      { name: "全球五金网", url: "http://www.wjw.cn/", desc: "五金产品交易平台" },
+      { name: "化工网", url: "http://huagong.huangye88.com/", desc: "化工产品信息查询" },
+      { name: "机经网", url: "http://www.mei.net.cn/", desc: "机械工业经济信息" },
+      { name: "废钢资源网", url: "http://www.feigang.net/index.html", desc: "废钢价格行情" },
+      { name: "再生资源网(网优)", url: "http://zs.fengj.com", desc: "再生资源交易信息" },
+      { name: "马可波罗", url: "http://china.makepolo.com/", desc: "工业品采购平台" },
+      { name: "铁甲网", url: "http://www.cehome.com/", desc: "工程机械行业门户" },
+      { name: "二手易", url: "https://www.esy.org/", desc: "二手设备交易" },
+      { name: "中关村在线", url: "https://detail.zol.com.cn/", desc: "IT产品报价与参数查询" },
+      { name: "机电产品报价系统", url: "https://price.86mdo.com/", desc: "机电产品价格查询系统" },
+      { name: "京东工业品", url: "https://mro.jd.com/", desc: "工业品一站式采购" },
+      { name: "中国供应商", url: "https://cn.china.cn/", desc: "B2B供应商信息平台" },
+      { name: "阿里巴巴1688", url: "https://www.1688.com/?theme=imall", desc: "国内最大批发交易平台" },
+      { name: "搜好货网", url: "https://www.912688.com/", desc: "工业品采购搜索" },
+      { name: "我的钢铁网", url: "https://www.mysteel.com/", desc: "钢铁价格与市场行情" },
+      { name: "中钢网", url: "http://baojia.steelcn.cn/", desc: "钢材报价平台" },
+      { name: "再生资源网(ZZ91)", url: "http://trade.zz91.com/buy.htm", desc: "再生资源供需平台" },
+      { name: "中果废品网", url: "http://www.zgfp.com/search/searchprice.aspx", desc: "废品价格查询" },
+      { name: "废旧网", url: "http://www.feijiu.net/", desc: "废旧物资交易信息" },
+      { name: "我的钢铁网综合指数", url: "https://index.mysteel.com/", desc: "钢铁行业综合价格指数" },
+      { name: "上海有色网", url: "https://www.smm.cn/", desc: "有色金属价格行情" },
+      { name: "外贸实务查询服务", url: "http://wmsw.mofcom.gov.cn/wmsw/", desc: "商务部外贸实务查询" },
+      { name: "化工仪器网", url: "http://www.chem1718.com.cn/", desc: "化工仪器设备信息" },
+      { name: "西本新干线", url: "http://www.96369.net/", desc: "钢铁物流与价格指数" },
+      { name: "锝秉商城", url: "https://www.sdbgk.com/", desc: "工业品电商平台" },
+      { name: "环球贸易网", url: "http://china.herostart.com/sell/", desc: "B2B贸易信息平台" },
+      { name: "瓯贝商城", url: "https://www.obei.com.cn/", desc: "工业品B2B采购平台" },
+      { name: "铁壁工程机械网", url: "http://www.jixie.cc/", desc: "工程机械信息平台" },
+      { name: "路面机械网", url: "https://www.lmjx.net/", desc: "路面工程机械信息" },
+      { name: "淘金地", url: "http://www.taojindi.com", desc: "B2B电子商务平台" },
+      { name: "工程机械交易网", url: "https://www.998jx.com/", desc: "二手工程机械交易" },
+      { name: "铁甲二手机", url: "https://www.tiebaobei.com/", desc: "二手工程机械设备交易" },
+      { name: "中国煤炭资源网", url: "http://www.sxcoal.com/", desc: "煤炭行业价格与资讯" },
+      { name: "中国煤炭网", url: "http://www.ccoalnews.com/index.html", desc: "煤炭行业新闻资讯" },
+      { name: "能源汇", url: "https://b2b.in-en.com/", desc: "能源行业B2B平台" },
+      { name: "船队在线", url: "https://www.hifleet.com/", desc: "全球船舶实时定位查询" },
+      { name: "船讯网", url: "http://www.shipxy.com/", desc: "船舶动态与交易信息" },
+      { name: "八方资源船舶网", url: "http://www.gdcost.com/", desc: "船舶行业资源平台" },
+      { name: "船海装备网", url: "https://www.shipoe.com/", desc: "船舶海工装备信息" },
+      { name: "中华船舶交易网", url: "https://www.cn-eship.com/", desc: "船舶交易平台" },
+      { name: "国际船舶网", url: "http://www.eworldship.com/shipsales", desc: "船舶买卖交易信息" },
+      { name: "天天拍船舶网", url: "http://www.ttship.com/index.html", desc: "船舶拍卖交易平台" },
+      { name: "船舶价格指数中心", url: "http://sspi.csi.com.cn/SSPIZHB.html", desc: "船舶价格指数查询" },
+      { name: "船舶买卖网", url: "http://sp.sol.com.cn/", desc: "船舶交易信息平台" },
+      { name: "中国船舶在线", url: "http://www.shipol.com.cn/scfx/index.htm", desc: "船舶市场分析信息" }
+    ]
+  },
+  {
+    id: "vehicle", name: "车辆评估查询", icon: "🚗",
+    desc: "新车价格、二手车交易、车型参数查询平台",
+    colors: { bg: "#f0fdf4", text: "#15803d", dot: "#22c55e", bd: "#dcfce7" },
+    sites: [
+      { name: "汽车之家", url: "https://www.autohome.com.cn/", desc: "最全面的汽车报价与参数查询" },
+      { name: "卡车之家", url: "http://www.360che.com/", desc: "卡车车型参数与报价" },
+      { name: "易车网", url: "https://price.bitauto.com/c1201/", desc: "汽车报价与购车信息" },
+      { name: "瓜子二手车", url: "https://www.guazi.com", desc: "二手车交易平台" },
+      { name: "海车集", url: "http://www.haicj.com/carmodel", desc: "车型数据库查询" },
+      { name: "商车网", url: "https://www.cn357.com/", desc: "商用车参数查询" },
+      { name: "爱卡汽车", url: "http://www.xcar.com.cn/", desc: "汽车资讯与社区" },
+      { name: "专汽之都", url: "https://www.zqzd.com/", desc: "专用汽车信息平台" },
+      { name: "二手车之家", url: "http://www.che168.com", desc: "二手车交易与估价" },
+      { name: "58同城二手车", url: "https://wh.58.com/ershouche/", desc: "本地二手车交易信息" },
+      { name: "天天拍车", url: "https://www.ttpai.cn/", desc: "二手车拍卖平台" },
+      { name: "车300", url: "https://www.che300.com/", desc: "二手车估价与残值查询" },
+      { name: "华夏二手车", url: "https://www.hx2car.com/", desc: "全国二手车交易信息" },
+      { name: "宜配网", url: "http://www.yiparts.com/vin", desc: "汽配数据仓库，VIN码查询" },
+      { name: "太平洋汽车", url: "https://www.pcauto.com.cn", desc: "汽车报价评测信息" },
+      { name: "搜狐二手车", url: "https://2sc.sohu.com", desc: "二手车交易信息" },
+      { name: "中国汽车网", url: "https://cn.auto-che.com/", desc: "中国汽车、摩托车与特种车辆信息" },
+      { name: "中国金恒德汽车用品价格指数", url: "http://www.jhdindex.com/", desc: "汽车用品价格指数" }
+    ]
+  },
+  {
+    id: "electronic", name: "电子设备评估", icon: "💻",
+    desc: "IT产品报价、二手回收、实验仪器查询平台",
+    colors: { bg: "#faf5ff", text: "#7e22ce", dot: "#a855f7", bd: "#f3e8ff" },
+    sites: [
+      { name: "中关村在线", url: "http://www.zol.com.cn/", desc: "IT产品最新报价与参数" },
+      { name: "爱回收", url: "https://www.aihuishou.com/", desc: "二手电子产品回收估价" },
+      { name: "慧聪网", url: "https://www.hc360.com", desc: "电子设备B2B交易" },
+      { name: "京东", url: "https://www.jd.com/", desc: "电子产品零售价格查询" },
+      { name: "泡泡网", url: "https://product.pcpop.com/", desc: "IT产品报价与评测" },
+      { name: "正二品", url: "http://www.zhengerpin.com/", desc: "二手IT设备交易" },
+      { name: "SH1717实验仪器", url: "http://www.sh1717.cn/apparatus.html", desc: "实验仪器设备信息" },
+      { name: "中国生物器材网", url: "http://www.bio-equip.com/", desc: "生物实验室器材查询" },
+      { name: "分析测试百科网", url: "http://www.antpedia.com/", desc: "分析测试仪器信息" },
+      { name: "维库仪器仪表网", url: "http://www.hi1718.com/", desc: "仪器仪表产品信息" }
+    ]
+  },
+  {
+    id: "realestate", name: "房地产评估查询", icon: "🏠",
+    desc: "房价行情、自动估价、房源挂牌、租金查询平台",
+    colors: { bg: "#fff7ed", text: "#c2410c", dot: "#f97316", bd: "#ffedd5" },
+    sites: [
+      { name: "中国房地产指数研究院", url: "http://www.zfsj.org/index.asp", desc: "房地产价格指数研究" },
+      { name: "中国指数研究院", url: "http://industry.fang.com/", desc: "房地产行业数据与指数" },
+      { name: "中国房价行情网", url: "http://www.creprice.cn/", desc: "全国各城市房价行情数据" },
+      { name: "全国房地产自动估价平台", url: "http://www.crevalue.cn/", desc: "房产在线自动估价系统" },
+      { name: "房价网", url: "http://sh.fangjia.com/", desc: "二手房价格查询与估价" },
+      { name: "房天下自动估价", url: "http://fangjia.fang.com/gz/", desc: "房产自动估价服务" },
+      { name: "链家", url: "https://wh.lianjia.com/", desc: "二手房交易与挂牌查询" },
+      { name: "58同城房产", url: "https://bj.58.com", desc: "综合房产信息平台" },
+      { name: "赶集网房产", url: "http://bj.ganji.com/", desc: "房产租售信息" },
+      { name: "云房价", url: "http://www.yunfangjia.com/", desc: "住宅、商业、办公、工业多业态房价查询" },
+      { name: "好租网", url: "https://www.haozu.com/sz/", desc: "写字楼租赁与共享办公租金查询" },
+      { name: "安居客", url: "https://chengdu.anjuke.com/", desc: "新房、二手房、租房信息" },
+      { name: "贝壳找房", url: "https://cd.ke.com/", desc: "真房源平台" },
+      { name: "中房网", url: "http://www.fangchan.com/data/138/index.html", desc: "房地产行业数据" },
+      { name: "房天下产业网", url: "https://fdc.fang.com/index/", desc: "房地产价格指数" },
+      { name: "中指云", url: "https://www.cih-index.com", desc: "房地产数据与指数平台" },
+      { name: "深圳市社区网格管理办公室", url: "http://www.szzlb.gov.cn/", desc: "深圳市指导租金查询" }
+    ]
+  },
+  {
+    id: "cost", name: "造价信息查询", icon: "💰",
+    desc: "建设工程造价、定额查询、指标分析平台",
+    colors: { bg: "#fef2f2", text: "#b91c1c", dot: "#ef4444", bd: "#fee2e2" },
+    sites: [
+      { name: "造价通", url: "http://hubei.zjtcn.com", desc: "造价信息综合查询" },
+      { name: "中国建设工程造价信息网", url: "http://www.cecn.gov.cn/", desc: "全国建设工程造价官方信息" },
+      { name: "中国建设工程造价管理协会", url: "http://www.ccea.pro/", desc: "造价行业管理与标准" },
+      { name: "广联达指标网", url: "http://www.gldzb.com", desc: "工程造价指标分析" },
+      { name: "造价168", url: "http://www.cost168.com/", desc: "工程造价信息查询" },
+      { name: "搜建筑网", url: "http://www.soujianzhu.cn/", desc: "建筑设计资料查询" },
+      { name: "工程技术学习网", url: "http://www.bzfxw.com/", desc: "工程建设标准规范" },
+      { name: "中投顾问", url: "http://c.ocn.com.cn/special/industrial-estate/index.html", desc: "产业园区研究报告" },
+      { name: "独立费", url: "https://www.dulifei.com/standard", desc: "建安工程其他费用计算标准" },
+      { name: "山东省工程建设造价服务信息网", url: "http://www.sdzjxx.com/", desc: "山东省工程造价信息" }
+    ]
+  },
+  {
+    id: "land", name: "土地评估查询", icon: "🌾",
+    desc: "土地流转、基准地价、地价监测、出让公告平台",
+    colors: { bg: "#f0fdfa", text: "#0f766e", dot: "#14b8a6", bd: "#ccfbf1" },
+    sites: [
+      { name: "土流网", url: "https://www.tuliu.com/", desc: "土地流转信息平台" },
+      { name: "地合网", url: "https://dihe.cn/", desc: "土地综合信息平台" },
+      { name: "中国土地市场网", url: "http://www.landchina.com/", desc: "土地出让公告与成交信息" },
+      { name: "土地资源网", url: "http://www.tdzyw.com/", desc: "基准地价查询" },
+      { name: "全国公共资源交易平台", url: "https://www.ggzy.gov.cn/", desc: "全国公共资源交易信息" },
+      { name: "中国自然资源经济研究院", url: "http://www.canre.org.cn/", desc: "自然资源经济研究" },
+      { name: "全国征地区片综合地价信息公开", url: "http://gsgk.mnr.gov.cn/tdsc/qpdj", desc: "征地补偿标准查询" },
+      { name: "中国土地科学", url: "http://www.chinalandscience.com.cn/", desc: "土地科学学术研究" },
+      { name: "中国土地勘测规划网", url: "http://www.clspi.org.cn/", desc: "土地勘测规划信息" },
+      { name: "中国地价信息服务平台", url: "https://www.landvalue.com.cn/", desc: "全国地价动态监测数据" },
+      { name: "自然资源部土地市场", url: "http://landchina.mnr.gov.cn/", desc: "自然资源部土地市场板块" },
+      { name: "武汉土地市场网", url: "http://www.whtdsc.com/crgg/index.jhtml", desc: "武汉土地出让信息" },
+      { name: "上海土地市场网", url: "http://www.shtdsc.com/", desc: "上海土地出让信息" }
+    ]
+  },
+  {
+    id: "patent", name: "专利商标版权查询", icon: "📜",
+    desc: "专利、商标、版权信息查询平台",
+    colors: { bg: "#fdf4ff", text: "#a21caf", dot: "#d946ef", bd: "#fae8ff" },
+    sites: [
+      { name: "中国专利审查信息网", url: "http://cpquery.sipo.gov.cn/", desc: "中国及多国专利审查信息查询" },
+      { name: "中国商标信息查询网", url: "http://sbj.saic.gov.cn/sbcx/", desc: "商标注册信息查询" },
+      { name: "中国版权保护中心", url: "http://www.ccopyright.com.cn/", desc: "版权登记与保护信息" },
+      { name: "国家知识产权局商标查询", url: "http://sbj.cnipa.gov.cn/", desc: "企业商标信息查询" },
+      { name: "SooPAT专利搜索", url: "http://www.soopat.com/", desc: "专利信息搜索引擎" },
+      { name: "中国专利信息中心", url: "https://www.cnpat.com.cn/", desc: "专利信息综合服务平台" },
+      { name: "专利信息服务平台", url: "http://search.cnipr.com/", desc: "中外专利信息检索" },
+      { name: "国家药监局数据查询", url: "https://www.nmpa.gov.cn/datasearch/home-index.html", desc: "药品、医疗器械、化妆品批文查询" },
+      { name: "国家知识产权公共服务网", url: "http://ggfw.cnipa.gov.cn:8010/", desc: "知识产权一站式公共服务" },
+      { name: "中国专利公布公告", url: "http://epub.cnipa.gov.cn/", desc: "专利公布公告查询" },
+      { name: "权大师", url: "http://www.quandashi.com/", desc: "知识产权服务平台" },
+      { name: "佰腾网", url: "http://so.baiten.cn/", desc: "专利检索与分析平台" },
+      { name: "标库网", url: "https://www.tmkoo.com/", desc: "商标信息查询平台" },
+      { name: "软件评估行业规定", url: "http://www.bscea.org/html/yjjycx/", desc: "软件评估相关行业规定查询" }
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════
+// 渲染
+// ═══════════════════════════════════════════════════
+
+function render() {
+  const searchVal = document.getElementById('searchInput').value.trim().toLowerCase();
+  const main = document.getElementById('mainContent');
+  const nav = document.getElementById('navInner');
+
+  let hasResults = false;
+  let navHTML = '';
+
+  main.innerHTML = categories.map(cat => {
+    const filtered = searchVal
+      ? cat.sites.filter(s => s.name.toLowerCase().includes(searchVal) || (s.desc && s.desc.toLowerCase().includes(searchVal)))
+      : cat.sites;
+    if (filtered.length > 0) hasResults = true;
+    const c = cat.colors;
+
+    // nav button
+    navHTML += `<button class="nav-btn" data-cat="${cat.id}" style="--nb-bg:${c.bg};--nb-text:${c.text};--nb-dot:${c.dot}" onclick="scrollToCat('${cat.id}')">
+      <span>${cat.icon}</span>
+      <span>${cat.name}</span>
+      <span class="nav-count">${filtered.length}</span>
+    </button>`;
+
+    if (filtered.length === 0) return '';
+
+    return `<section id="sec-${cat.id}" class="section" style="--sh-bg:${c.bg};--sh-text:${c.text};--sh-dot:${c.dot}">
+      <div class="section-header">
+        <span class="section-icon">${cat.icon}</span>
+        <span class="section-title">${cat.name}</span>
+        <span class="section-desc">${cat.desc}</span>
+        <span class="section-count">${filtered.length}个</span>
+      </div>
+      <div class="grid">
+        ${filtered.map(s => `<a href="${s.url}" target="_blank" rel="noopener noreferrer" class="card" style="--cb:${c.bd};--cd:${c.dot}">
+          <div class="card-name"><span>${s.name}</span><span class="card-arrow">↗</span></div>
+          ${s.desc ? `<p class="card-desc">${s.desc}</p>` : ''}
+        </a>`).join('')}
+      </div>
+    </section>`;
+  }).join('');
+
+  nav.innerHTML = navHTML;
+
+  // No results
+  if (!hasResults && searchVal) {
+    main.innerHTML = `<div class="no-results">
+      <p>🔍 未找到与 "<strong>${searchVal}</strong>" 相关的网站</p>
+      <button class="reset-btn" onclick="clearSearch()">清除搜索</button>
+    </div>`;
+  }
+
+  // Update clear button visibility
+  document.getElementById('clearBtn').style.display = searchVal ? 'block' : 'none';
+
+  // Update active nav
+  updateActiveNav();
+}
+
+// ═══════════════════════════════════════════════════
+// 交互
+// ═══════════════════════════════════════════════════
+
+function scrollToCat(id) {
+  const el = document.getElementById('sec-' + id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  render();
+  document.getElementById('searchInput').focus();
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('searchInput').focus();
+}
+
+function updateActiveNav() {
+  const btns = document.querySelectorAll('.nav-btn');
+  let activeId = '';
+  let lastId = '';
+  for (const cat of categories) {
+    lastId = cat.id;
+    const el = document.getElementById('sec-' + cat.id);
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom >= 100) { activeId = cat.id; break; }
+    }
+  }
+  if (!activeId) {
+    // 若已滚到底部，选中最后一个分类
+    activeId = (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50)
+      ? lastId
+      : categories[0].id;
+  }
+  btns.forEach(b => b.classList.toggle('active', b.dataset.cat === activeId));
+}
+
+// ═══════════════════════════════════════════════════
+// 事件绑定
+// ═══════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', render);
+document.getElementById('searchInput').addEventListener('input', render);
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTopBtn');
+  btn.classList.toggle('visible', window.scrollY > 400);
+  updateActiveNav();
+});
+</script>
+</body>
+</html>
