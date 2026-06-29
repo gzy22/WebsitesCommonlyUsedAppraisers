@@ -294,7 +294,7 @@ body {
 <!-- ════ Header ════ -->
 <header class="header">
   <h1>🔖 评估师常用网站导航</h1>
-  <p class="subtitle">涵盖 150 个专业评估相关网站，分类收录报告查询、设备估价、房产土地、造价、知识产权、苗木等常用工具</p>
+  <p class="subtitle">涵盖 159 个专业评估相关网站，分类收录报告查询、设备估价、房产土地、造价、知识产权、苗木、资产交易等常用工具</p>
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="搜索网站名称或功能描述..." autocomplete="off">
     <button class="clear-btn" id="clearBtn" style="display:none" onclick="clearSearch()">✕</button>
@@ -532,6 +532,22 @@ const categories = [
       { name: "佰腾网", url: "http://so.baiten.cn/", desc: "专利检索与分析平台" },
       { name: "标库网", url: "https://www.tmkoo.com/", desc: "商标信息查询平台" },
       { name: "软件评估行业规定", url: "http://www.bscea.org/html/yjjycx/", desc: "软件评估相关行业规定查询" }
+    ]
+  },
+  {
+    id: "asset", name: "资产交易平台", icon: "🏛️",
+    desc: "产权交易、资产转让、公共资源交易平台",
+    colors: { bg: "#fef3c7", text: "#92400e", dot: "#d97706", bd: "#fde68a" },
+    sites: [
+      { name: "天河资产", url: "https://szjy.thnet.gov.cn/", desc: "天河区资产交易平台" },
+      { name: "从化资产", url: "http://3z.conghua.gov.cn/chqt/#/index", desc: "从化区资产交易平台" },
+      { name: "白云资产", url: "https://3z.by.gov.cn/byqt_new/#/list", desc: "白云区资产交易平台" },
+      { name: "番禺资产", url: "https://nclqyj.panyu.gd.cn/pyqt/#/index", desc: "番禺区资产交易平台" },
+      { name: "海珠资产", url: "https://zs-sanzi.hznync.com.cn/#/home", desc: "海珠区资产交易平台" },
+      { name: "广东联合产权", url: "https://www.gduaee.com/www/article/xmdt/swzc/", desc: "广东省联合产权交易中心" },
+      { name: "南方联合产权", url: "https://www.csuaee.com.cn/item.html", desc: "南方联合产权交易中心" },
+      { name: "珠海产权", url: "https://www.zhaeec.com/", desc: "珠海产权交易中心" },
+      { name: "广州市产权交易所", url: "https://new.gemas.com.cn/", desc: "广州产权交易所" }
     ]
   }
 ];
