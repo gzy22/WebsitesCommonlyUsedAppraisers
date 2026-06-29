@@ -33,12 +33,3 @@
 ```
 https://gzy22.github.io/WebsitesCommonlyUsedAppraisers/
 ```
-
-## 数据来源
-
-《评估师常用网站（2026）》— 估价师平台（微信公众号）
-
-## 技术栈
-
-- 纯前端 HTML + CSS + JavaScript
-- 单页应用，零依赖，直接浏览器打开即可运行
